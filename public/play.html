@@ -1,0 +1,14 @@
+<!-- Filename: public/play.html -->
+
+<h2>{{board.title}} ({{board.data.length}} x {{board.data[0].length}})</h2>
+
+Colors: <input type="button" ng-repeat="color in colors" value="{{color.name}}" ng-click="setColor(color.hex)" style="{{currentColor == color.hex ? 'background-color: yellow' : '' }}" />
+
+<table border="1" cellspacing="0">
+  <tr ng-repeat="row in board.data">
+    <td ng-repeat="cell in row track by $index" ng-click="click($parent.$index, $index)" style="width:50px; height:50px; background-color: #{{cell.length == 0 ? 'FFFFFF' : cell}}">
+      &nbsp;
+    </td>
+  </tr>
+</table>
+

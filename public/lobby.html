@@ -1,0 +1,14 @@
+<!-- Filename: public/lobby.html -->
+
+<h2>Boards</h2>
+<div ng-show="boards.length == 0">No games available.</div>
+
+<div ng-repeat="board in boards">
+  <a href="#/play/{{board.$id}}" ng-click="joinBoard(board)">{{board.title}} {{board.data.length}} x {{board.data[0].length}}</a>
+</div>
+
+<h2>New Board</h2>
+Board title: <input type="text" ng-model="title" /><br />
+Size: <input type="number" ng-model="width" value="1" min="1" max="10" /> (width) X <input type="number" ng-model="height" value="1" min="1" max="10" /> (height)
+
+<input type="button" ng-click="newBoard()" value="New Board" />
